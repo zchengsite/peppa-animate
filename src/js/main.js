@@ -23,10 +23,11 @@ let codeHide = true,
 function writeCss(code) {
     timer = setInterval(function () {
         n += 5;
+        let currentCode = code.substring(0, n);
         if (!codeHide) {
-            editor.innerHTML = Prism.highlight(code.substring(0, n), Prism.languages.css);
+            editor.innerHTML = Prism.highlight(currentCode, Prism.languages.css);
         }
-        styleTag.innerHTML = code.substring(0, n);
+        styleTag.innerHTML = currentCode;
         editorWrap.scrollTop = 50000;
         if (n >= code.length) {
             clearInterval(timer);
